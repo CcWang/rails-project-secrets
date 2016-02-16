@@ -1,0 +1,12 @@
+<form action="/users/create" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <label for='email'>Email:</label>
+  <input type="email" name="email" id="email">
+  <label for='name'>Name</label>
+  <input type="text" name="name" id="name">
+  <lable for ='pwd'>Password:</lable>
+  <input type="password" name="password" id="pwd">
+  <label for='pwd_con'>Password Confirmation:</label>
+  <input type="password" name="password_confirmation" id="pwd_con">
+  <input type="submit" value="Join">
+</form>

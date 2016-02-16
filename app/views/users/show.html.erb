@@ -1,0 +1,26 @@
+<p>Name:<%=@user.name%></p>
+<!-- <form action="/users/<%=@user.id%>" method ='post'>
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <input type="submit" value="Edit Profile">
+</form> -->
+<a href="/users/<%=@user.id%>" data-method='patch'>Edit Profile</a>
+<h1>Secrets</h1>
+<%if @secrets && @secrets.length > 0%>
+  <%@secrets.each do | s| %>
+    <p><%=s.content%></p>
+    <p><%=s.likes.length%> likes</p>
+    <form action="/secrets/<%=s.id%>" method='post'>
+      <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete">
+    </form>
+  <%end%>
+<%end%>
+<form action="/secrets" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <label for="secret">New Secret</label>
+  <textarea id="secret" name="secret"></textarea>
+  <input type="submit" value="Create Secret">
+</form>
+<a href="/secrets">Secrets Wall</a>
